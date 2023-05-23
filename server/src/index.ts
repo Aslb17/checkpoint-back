@@ -9,7 +9,7 @@ import {
 import { buildSchema } from "type-graphql";
 import db from "./db";
 import { env } from "./env";
-import countriesResolver from "./resolvers/countriesResolver";
+import CountryResolver from "./resolvers/CountryResolver";
 
 const start = async (): Promise<void> => {
   await db.initialize();
@@ -17,7 +17,7 @@ const start = async (): Promise<void> => {
   const app = express();
   const httpServer = http.createServer(app);
   const schema = await buildSchema({
-    resolvers: [countriesResolver],
+    resolvers: [CountryResolver],
   });
 
   const server = new ApolloServer({

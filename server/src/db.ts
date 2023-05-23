@@ -1,10 +1,12 @@
 import { DataSource } from "typeorm";
-import { env } from "./env";
+import Country from "./entity/Country";
 
-export default new DataSource({
+const db = new DataSource({
   type: "sqlite",
   database: "sqlite",
   synchronize: true,
-  entities: [],
+  entities: [Country],
   logging: ["error"],
 });
+
+export default db;
